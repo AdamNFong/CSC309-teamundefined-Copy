@@ -1,0 +1,31 @@
+{
+  "name": "a3",
+  "version": "1.0.0",
+  "description": "<style> main {font-size: 1.5em;} li {margin-bottom: 10px;} </style> <main> <h1>Assignment 3</h1> <h2>Final Project</h2>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FallCSC309/assignment-3-teamundefined.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FallCSC309/assignment-3-teamundefined/issues"
+  },
+  "homepage": "https://github.com/FallCSC309/assignment-3-teamundefined#readme",
+  "dependencies": {
+    "basic-auth": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mongodb": "^2.2.33",
+    "request": "^2.83.0"
+  }
+}

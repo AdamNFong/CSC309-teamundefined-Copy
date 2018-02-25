@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include ../head %>
+  <body>
+    <% var active = "launchpads"; %>
+    <% include ../nav %>
+    <!-- Tab views -->
+    <div class="tab-view">
+      <div id="launchpads">
+		<h2><%= title %></h2>
+		<ul class="results">
+		<li id=edit class="result">
+		<!-- 'id', 'full_name', 'details', 'status', 'location' -->
+		  <form class="form" action="/launchpads/<%= launchpad.id %>?_method=<%= method %>" method="post">   
+				<label for="full_name">Name</label>
+				<input id="full_name" type="text" placeholder="Enter launchpad name" name="full_name" value="<%= launchpad.full_name %>" required>
+
+				<label for="status">Status</label>
+				<input id="status" type="text" placeholder="Enter whether this launchpad is in use" name="status" value="<%= launchpad.status %>">
+
+				<label for="name">Location Name</label>
+				<input id="name" type="text" placeholder="Enter the name of the launch location" name="name" value="<%= launchpad.location.name %>">
+
+				<label for="region">Location Region</label>
+				<input id="region" type="text" placeholder="Enter the region of the launch" name="region" value="<%= launchpad.location.region %>">
+
+        <label for="details">Details</label>
+        <textarea id="details" placeholder="Enter details of the launchpad" name="details" rows="8"><%= launchpad.details %></textarea>
+			<button type="submit" class="btn">Submit</button>
+		  </form>
+		 </li>
+		</ul>
+      </div>
+    </div>
+    <% include ../footer %>
+    <% include ../script %>
+  </body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include ../head %>
+  <body>
+    <% var active = "launchpads"; %>
+    <% include ../nav %>
+    <!-- Tab views -->
+    <div class="tab-view">
+      <div id="launchpads">
+        <h2><%= title %></h2>
+        <ul class="results">
+          <% data.forEach((elem, i) => { %>
+            <li id=<%= elem.id %> class="result">
+              <h3><%= elem.full_name %></h3>
+              <p><%= elem.details %></p>
+              <ul>
+                <li>Status: <%= printProperty(elem, 'status', '', '') %></li>
+                <li>Location: <%= printProperty(elem.location, 'name', '', ', ') + printProperty(elem.location, 'region', '', '') %></li>
+              </ul>
+              <p><a href=<%= "/launches?launchpad=" + elem.id %>>Launches</a></p>
+              <% if (isLoggedIn) { %>
+                <form action=<%= "/launchpads/" + elem.id + "?_method=DELETE" %> method="POST">
+                  <a href=<%= "/launchpads/" + elem.id + "/edit" %> class="btn"><i class="material-icons">edit</i></a>
+                  <button class="btn"><i class="material-icons">delete</i></button>
+                </form>
+              <% } %>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+    <% if (isLoggedIn) { %>
+      <a href="/launchpads/create" class="btn btn-float"><i class="material-icons">add</i></a>
+    <% } %>
+    <% include ../footer %>
+    <% include ../script %>
+  </body>
+</html>
